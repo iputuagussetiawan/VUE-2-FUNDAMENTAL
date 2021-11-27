@@ -2,7 +2,7 @@
   <div id="app">
     <h2>{{title}}</h2>
     <Navbar></Navbar>
-    <AllFriends :friends="friends"></AllFriends>
+    <AllFriends :friends="friends" @delete="deleteFriend"></AllFriends>
     <OnlineFriends :friends="friends"></OnlineFriends>
   </div>
 </template>
@@ -29,7 +29,15 @@ export default {
   },
   components:{
     Navbar,AllFriends,OnlineFriends
-  }
+  },
+  methods: {
+    deleteFriend(payload){
+      console.log(payload)
+      this.friends=this.friends.filter(friend=>{
+        return friend.name!==payload.name
+      })
+    }
+  },
 }
 </script>
 
