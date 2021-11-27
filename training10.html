@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Vue js Loop </title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+		<ol>
+			<li v-for="name in names">{{ name }}</li>
+		</ol>
+
+		<ul>
+			<li v-for="fruit in fruits">{{ fruit.name }} {{ fruit.color }} {{  fruit.weight  }}</li>
+		</ul>
+   </div>
+<script>
+ let app = new Vue({
+	el: '#app',
+	data:{
+		names: ['Iputu Agus','Dewi','Jhon','Mia','Doe','Luna','Jhen'],
+		fruits:[
+			{
+				name:'Mango',
+				color:'Yellow',
+				weight:'1KG'
+			},
+			{
+				name:'Orange',
+				colo:'Orange',
+				weight:'1KG'
+			},
+			{
+				name:'Apple',
+				color:'Green',
+				weight:'1KG'
+			},
+		]
+	},
+	methods: {
+		
+	},
+})
+</script>
+</body>
+</html>
