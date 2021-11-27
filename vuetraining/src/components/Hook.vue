@@ -1,40 +1,55 @@
 <template>
     <div class="Hook">
-        <h1>{{title}}</h1>
-        <button @click="ChangeTitle">Click Me</button>
+        <h1>Posts</h1><hr>
+        <input type="text" v-model="searchTerm" placeholder="Search">
+
+        <div v-for="post in filtersearch" :key="post.id">
+            <h1>{{post.title}}</h1>
+            <div class="content">{{post.body | snippet}}</div>
+        </div>
     </div>
 	
 </template>
 
 
 <script>
+import axios from 'axios'
 export default {
 	name: 'Hook',
 	data(){
 		return {
-            title:'Hook Main Data'
-
+            posts:[],
+            searchTerm:''
 		}
 	},
-    methods: {
-        ChangeTitle(){
-            this.title='Belajjar VueJS'
+    computed:{
+        filtersearch(){
+            return this.posts.filter(post=>{
+                return post.title.match(this.searchTerm)
+            })
         }
     },
-    beforeMount() {
-        //alert('Before Created Hook')
+    methods: {
         
     },
-    mounted() {
-        //alert(' Created Hook')
+    created() {
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+        .then((response) => {
+            console.log(response)
+            this.posts=response.data
+        }).catch((error) => {
+            console.log(error)
+            
+        });
     },
-    beforeUpdate() {
-        alert('..Update In Progress')
-    },
+    
 }	 
 </script>
 
 <style scoped>
-	
+	h1{
+        color: rgb(31, 187, 57);
+        text-align: center;
+    }
 	
 </style>
