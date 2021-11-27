@@ -2,8 +2,7 @@
   <div id="app">
     <h2>{{title}}</h2>
     <Navbar></Navbar>
-    <AllFriends :friends="friends" @delete="deleteFriend"></AllFriends>
-    <OnlineFriends :friends="friends"></OnlineFriends>
+    <Hook></Hook>
   </div>
 </template>
 
@@ -11,8 +10,7 @@
 
 
 import Navbar from './components/Navbar.vue'
-import AllFriends from './components/AllFriend.vue'
-import OnlineFriends from './components/OnlineFriend.vue'
+import Hook from './components/Hook.vue'
 export default {
   name: 'App',
   data(){
@@ -28,15 +26,11 @@ export default {
     }
   },
   components:{
-    Navbar,AllFriends,OnlineFriends
+    Navbar,
+    Hook
   },
   methods: {
-    deleteFriend(payload){
-      console.log(payload)
-      this.friends=this.friends.filter(friend=>{
-        return friend.name!==payload.name
-      })
-    }
+    
   },
 }
 </script>
