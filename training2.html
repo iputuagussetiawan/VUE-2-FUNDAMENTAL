@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Vue js Project </title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+   <h1>{{ myName() }} </h1>
+   <h1>{{ MyAge(25) }} </h1>
+   </div>
+<script>
+ let app = new Vue({
+	el: '#app',
+	data:{
+		message: 'This My Age,'
+	},
+	methods: {
+		myName(){
+			return 'Learning Vue With Udemy'
+		},
+		MyAge(age){
+			return `${this.message} My Age Is ${age}`
+		}
+	},
+})
+</script>
+</body>
+</html>

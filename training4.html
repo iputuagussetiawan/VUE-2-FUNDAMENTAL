@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Vue Event </title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+	   <h1>I Earn {{ dollar }} Per Mont</h1>
+	   <button @dblclick="Amount(1)"> +1 </button>
+	   <button @click="Amount(-1)"> -1 </button>
+   </div>
+<script>
+ let app = new Vue({
+	el: '#app',
+	data:{
+		dollar:100
+	},
+	methods: {
+		Amount(pound){
+			this.dollar +=pound
+		}
+	},
+})
+</script>
+</body>
+</html>
