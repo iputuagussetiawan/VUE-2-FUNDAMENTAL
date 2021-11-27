@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Vue js If Elseif Condition </title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+		<p v-if="name">Learn Vue Js</p>
+		<p v-else-if="age">24</p>
+		<button @click="showName()">Show Name |{{ name }}</button>
+		<button @click="showAge()">Show Age |{{ age }}</button>
+   </div>
+<script>
+ let app = new Vue({
+	el: '#app',
+	data:{
+		name: true,
+		age:true
+	},
+	methods: {
+		showName(){
+			this.name=!this.name
+		},
+		showAge(){
+			this.age=!this.age
+		},
+		
+		
+	},
+})
+</script>
+</body>
+</html>
